@@ -1,33 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 
 <body>
-    <header id="app-cmp-main-header">
-        <h1>Project @section('header') @yield('title') @show
-        </h1>
-    </header>
+    <div class="navbar">
+        <div class="logo"><a href="">DISH DELIGHT</a></div>
+        <a href=""><i class="fa fa-fw fa-user"></i> Login</a>
+        <a href="{{ route('foods.list') }}"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        <a href="{{ route('foods.view') }}"><i class="fa fa-fw fa-search"></i> Search</a>
+        <a href="{{ route('home.form') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+    </div>
 
-
-    <div id="app-cmp-main-content ">
-        <div class="linka"><a href="" class="link">1</a>
-            <a href="" class="link">2</a>
-            <a href="" class="link">3</a>
-        </div>
+    <div>
         @yield('content')
     </div>
 
-    <footer id="app-cmp-main-footer">
-        Project
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="col">
+                    <a href="" class="footer-logo">Logo</a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa amet autem odio velit illum tempore 
+                    vitae consequatur veritatis nam ab quae voluptatibus.</p>
+                    <ul class="social">
+                        <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Some Link</h4>
+                    <ul>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Some Link</h4>
+                    <ul>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Some Link</h4>
+                    <ul>
+                        <li><a href="">Link 1</a></li>
+                        <li><a href="">Link 2</a></li>
+                        <li><a href="">Link 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
-
 </body>
 
 </html>

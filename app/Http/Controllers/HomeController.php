@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    function show() : View {
-        return view('home');
+    function show(): View
+    {
+        return view('home.form');
     }
-
 }
