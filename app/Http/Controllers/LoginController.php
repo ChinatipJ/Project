@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Psr\Http\Message\ServerRequestInterface;
+
+class LoginController extends Controller
+{
+    function show(): View
+    {
+        return view('logins.form');
+    }
+
+    function logout(): RedirectResponse
+    {
+        Auth::logout();
+        session()->invalidate();
+
+        // regenerate CSRF token
+        session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
+    function authenticate(ServerRequestInterface $request): RedirectResponse
+    {
+
+        // get credentials from user.
+        $data = $request->getParsedBody();
+        $credentials = [
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ];
+        // authenticate by using method attempt()
+        if (Auth::attempt($credentials)) {
+            // regenerate the new session ID
+            session()->regenerate();
+
+            // redirect to the requested URL or
+            // to route products.list if does not specify
+            return redirect()->intended(route('home.form'));
+        }
+        return redirect()->back()->withErrors([
+            'credentials' => 'The provided credentials do not match our records.',
+        ]);
+    }
+}
