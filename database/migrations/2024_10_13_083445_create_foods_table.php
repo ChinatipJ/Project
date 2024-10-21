@@ -11,8 +11,8 @@ class CreateFoodsTable extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
             $table->string('name', 45)->nullable();
-            $table->string('description', 45)->nullable();
-            $table->string('ingredient', 45)->nullable();
+            $table->string('description', 255)->nullable();
+            $table->string('ingredient', 255)->nullable();
             $table->string('time', 45)->nullable();
             $table->timestamp('timestamp')->nullable(); // Use nullable timestamp
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign key

@@ -49,7 +49,9 @@ Route::middleware([
 
 
 
-
+        //ที่ล็อตเต้เพิ่มมา 
+        Route::get('/search', [LayoutController::class, 'handleSearch'])
+        ->name('foods.search');
 
         Route::controller(FoodController::class)
             ->prefix('foods')
@@ -57,6 +59,7 @@ Route::middleware([
             ->group(function () {
                 // Route::get('view', 'show')->name('view');
                 Route::get('list', 'list')->name('list');
+                
                 Route::get('FormCreate', 'ShowFormCreate')->name('create');
                 Route::post('Add', 'CreateAdd')->name('createAdd');
                 Route::get('view/{food}', 'show')->name('view');

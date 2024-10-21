@@ -17,8 +17,10 @@
 
         
         <div class="icon-section">
+            <form action="{{ route('foods.search') }}" method="get">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" placeholder="Search..." class="search-input"> 
+            <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+        </form>
         </div>
 
      
