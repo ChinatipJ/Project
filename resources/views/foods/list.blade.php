@@ -1,83 +1,44 @@
 @extends('layouts.main')
 
 @section('content')
+    <html>
 
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
-</head>
-<main>
-<body>
-  @error('error')
-      <div>
-        <span>{{$message}}</span>
-      </div>
-  @enderror
-    @csrf
-    <form action="" method="post">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
+    </head>
+    <main>
 
-        <h1>Food</h1>
-        <div class="container">
-        @foreach ($foods as $food)
-            
-        <div class="card">
-          <div class="imgwrap">
-            <img src="{{asset('images/'.$food->img)}}" alt="">
-          </div>
-          <h2>{{$food->name}}</h2>
-          <p>{{$food->description}}</p>
-        </div>
-        @endforeach
+        <body>
+            @error('error')
+                <div>
+                    <span>{{ $message }}</span>
+                </div>
+            @enderror
+            @csrf
+            <form action="" method="post">
 
-          <div class="card">
-            <div class="imgwrap">
-              <img src="{{ asset('img/10.jpg') }}" alt="">
-            </div>
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
+                <h1>Food</h1>
+                <div class="container">
+                    @foreach ($foods as $food)
+                        <div class="card">
+                            <div class="imgwrap">
+                                <img src="{{ asset('images/' . $food->img) }}" alt="">
+                            </div>
+                            <h2>{{ $food->name }}</h2>
+                            <p>{{ $food->description }}</p>
+                        </div>
+                    @endforeach
 
-          <div class="card">
-            <div class="imgwrap">
-              <img src="{{ asset('img/6.webp') }}" alt="">
-            </div>
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-          <div class="card">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt temporibus, dolorum corrupti eum maiores quisquam nulla autem, quae illo vero porro. Fugiat voluptas incidunt rerum magni aliquid voluptates iure.</p>
-          </div>
-        </div>
+                    
 
-    </form>
-    
-</body>
-</main>
-</html>
+                    
 
+                </div>
+
+            </form>
+
+        </body>
+    </main>
+
+    </html>
 @endsection

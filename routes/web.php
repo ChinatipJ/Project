@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,26 +31,35 @@ Route::middleware([
             Route::get('/logout', 'logout')->name('logout');
         });
 
-        Route::middleware(['auth'])->group(function () {
-            Route::controller(HomeController::class)
+    Route::middleware(['auth'])->group(function () {
+        Route::controller(HomeController::class)
             ->prefix('home')
             ->name('home.')
-            ->group(function(){
+            ->group(function () {
                 Route::get('form', 'show')->name('form');
-
             });
 
-            Route::controller(FoodController::class)
+        Route::controller(CategoryController::class)
+            ->prefix('categories')
+            ->name('categories.')
+            ->group(function () {
+                // Route สำหรับแสดงรายการอาหารใน categories/list
+                Route::get('{category}/list', 'list')->name('list');
+            });
+
+
+
+
+
+        Route::controller(FoodController::class)
             ->prefix('foods')
             ->name('foods.')
-            ->group(function(){
-                Route::get('view', 'show')->name('view');
+            ->group(function () {
+                // Route::get('view', 'show')->name('view');
                 Route::get('list', 'list')->name('list');
                 Route::get('FormCreate', 'ShowFormCreate')->name('create');
                 Route::post('Add', 'CreateAdd')->name('createAdd');
-
+                Route::get('view/{food}', 'show')->name('view');
             });
-
-
-});
+    });
 });

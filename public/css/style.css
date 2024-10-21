@@ -1,0 +1,115 @@
+.sidebar {
+    height: 100vh;
+    width: 50px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    gap: 15px; 
+}
+
+.icon-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.icon-section i {
+    font-size: 24px;
+    color: white;
+}
+
+.icon-section .username, 
+.icon-section .search-input, 
+.icon-section .category-title {
+    display: none; 
+    margin-left: 10px;
+}
+
+.search-input {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: none; 
+}
+
+.sidebar ul li {
+    padding: 5px 0;
+    color: white;
+}
+
+
+.logout-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logout-section i {
+    font-size: 24px;
+    color: white;
+}
+
+.logout-section .logout-text {
+    display: none;
+    margin-left: 10px;
+}
+
+.content {
+    margin-left: 50px;
+    /* padding: 20px; 
+    transition: margin-left 0.5s;  */
+}
+
+img{
+    border-radius: 10px;
+}
+.imgwrap{
+    border-radius: 20px;
+}
+
+
+.sidebar:hover {
+    width: 250px;
+}
+
+
+.sidebar:hover .username, 
+.sidebar:hover .search-input, 
+.sidebar:hover .category-title, 
+.sidebar:hover ul, 
+.sidebar:hover .logout-text {
+    display: block;
+}
+
+.category-list li{
+    margin-left: 35px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.linkfoods{
+    color: black;
+}
+.scrollbox-inner div{
+    padding-bottom: 8px;
+}
+.dis{
+    padding-left: 20px;
+}

@@ -33,6 +33,10 @@
             <label for="ingrient">Ingredients:</label>
             <input type="text" name="ingredient" id="ingredient" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="time">Stepfood:</label>
+            <textarea name="description" id="description" class="form-control"></textarea>
+        </div>
 
         <div class="form-group">
             <label for="time">Preparation Time:</label>

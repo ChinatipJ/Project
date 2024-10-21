@@ -10,11 +10,19 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
-class FoodController extends Controller
+class FoodController extends LayoutController
 {
-    function show(): View
+    // function show(): View
+    // {
+    //     return view('foods.view');
+    // }
+    function show($food): View
     {
-        return view('foods.view');
+      
+        $food = Food::findOrFail($food);
+
+       
+        return view('foods.view', compact('food'));
     }
 
     function list(Request $request): View
@@ -37,6 +45,7 @@ class FoodController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'ingredient' => 'nullable|string',
+            'stepfood' => 'string',
             'time' => 'nullable|string',
             'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|integer',
