@@ -13,6 +13,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   backdrop-filter: blur(4px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -99,9 +102,11 @@ footer ul {
 }
 
 footer {
+  position: fixed;
   width: 100%;
-  padding: 40px 10px 15px 150px;
+  padding: 40px 10px 15px 30px;
   background: black;
+  z-index: 2; 
 }
 
 .footer-container {
