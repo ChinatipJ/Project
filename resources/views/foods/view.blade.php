@@ -12,7 +12,7 @@
     <form action="" method="post">
         <div class="row">
             <div class="imgwrap">
-                <img src="{{ asset('img/10.jpg') }}" alt="">
+                <img src="{{ asset('images/' . $food->img) }}" alt="">
             </div>
             <div class="contentwrap">
                 <div class="content">
@@ -37,6 +37,80 @@
                 </div>
             </div>
         </div>
+
+        <div class="comment-content">
+            <div class="commentbig-container">
+              <div class="comment-container">
+                  <div class="comment-card">
+                      <h3 class="title">Title</h3>
+                      <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, beatae ipsam vitae consequuntur eligendi deserunt quibusdam fuga sunt, 
+                          soluta excepturi eveniet, porro commodi maiores fugit inventore quod? Magnam, dolorem necessitatibus!
+                      </p>
+                      <div class="comment-footer">
+                          <div class="edit">Edit</div>
+                          <div class="delete">Delete</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="comment-container">
+                  <div class="comment-card">
+                      <h3 class="title">Title</h3>
+                      <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, beatae ipsam vitae consequuntur eligendi deserunt quibusdam fuga sunt, 
+                          soluta excepturi eveniet, porro commodi maiores fugit inventore quod? Magnam, dolorem necessitatibus!
+                      </p>
+                      <div class="comment-footer">
+                          <div class="edit">Edit</div>
+                          <div class="delete">Delete</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="comment-container">
+                  <div class="comment-card">
+                      <h3 class="title">Title</h3>
+                      <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, beatae ipsam vitae consequuntur eligendi deserunt quibusdam fuga sunt, 
+                          soluta excepturi eveniet, porro commodi maiores fugit inventore quod? Magnam, dolorem necessitatibus!
+                      </p>
+                      <div class="comment-footer">
+                          <div class="edit">Edit</div>
+                          <div class="delete">Delete</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="comment-container">
+                  <div class="comment-card">
+                      <h3 class="title">Title</h3>
+                      <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, beatae ipsam vitae consequuntur eligendi deserunt quibusdam fuga sunt, 
+                          soluta excepturi eveniet, porro commodi maiores fugit inventore quod? Magnam, dolorem necessitatibus!
+                      </p>
+                      <div class="comment-footer">
+                          <div class="edit">Edit</div>
+                          <div class="delete">Delete</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="comment-container">
+                  <div class="comment-card">
+                      <h3 class="title">Title</h3>
+                      <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, beatae ipsam vitae consequuntur eligendi deserunt quibusdam fuga sunt, 
+                          soluta excepturi eveniet, porro commodi maiores fugit inventore quod? Magnam, dolorem necessitatibus!
+                      </p>
+                      <div class="comment-footer">
+                          <div class="edit">Edit</div>
+                          <div class="delete">Delete</div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+              <div class="commentbar-container">
+                  <input class="comment-input" type="text" placeholder="comment">
+              </div>
+          </div>
+
     </form>
 
 </body>

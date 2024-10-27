@@ -1,44 +1,41 @@
 @extends('layouts.main')
 
 @section('content')
-    <html>
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
-    </head>
-    <main>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
+</head>
 
-        <body>
-            @error('error')
-                <div>
-                    <span>{{ $message }}</span>
-                </div>
-            @enderror
-            @csrf
-            <form action="" method="post">
-
-                <h1>Food</h1>
-                <div class="container">
-                    @foreach ($foods as $food)
-                        <div class="card">
-                            <div class="imgwrap">
-                                <img src="{{ asset('images/' . $food->img) }}" alt="">
-                            </div>
-                            <h2>{{ $food->name }}</h2>
-                            <p>{{ $food->description }}</p>
+<main>
+<body>
+    @error('error')
+        <div>
+            <span>{{ $message }}</span>
+        </div>
+    @enderror
+    @csrf
+    <form action="" method="post">
+    <div class="title-wrapper">
+        <div class="title">
+            <h2>Food</h2>
+            <h2>Food</h2>
+        </div>
+    </div>
+        <div class="container">
+            @foreach ($foods as $food)
+                 <a class="linkfoods" href="{{ route('foods.view', $food->id) }}">
+                    <div class="card">
+                        <div class="imgwrap">
+                            <img src="{{ asset('images/' . $food->img) }}" alt="">
                         </div>
-                    @endforeach
+                        <h2>{{ $food->name }}</h2>
+                        <p>{{ $food->description }}</p>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </form>
+</body>
+</main>
 
-                    
-
-                    
-
-                </div>
-
-            </form>
-
-        </body>
-    </main>
-
-    </html>
 @endsection

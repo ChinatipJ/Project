@@ -62,6 +62,7 @@ class FoodController extends LayoutController
     
 
         $food = Food::create($validated);
+        return view('foods.create');
     }
     
 }

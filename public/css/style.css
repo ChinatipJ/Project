@@ -1,115 +1,129 @@
-.sidebar {
+/* layouts sidebar */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    width: 100%;
     height: 100vh;
-    width: 50px; 
+    background-image: url;
+    background-position: center;
+    background-size: cover;
+}
+
+.side-nav {
+    position: relative;
+    width: 110px;
     position: fixed;
+    height: 100%;
     top: 0;
     left: 0;
-    background-color: #333;
-    color: white;
-    overflow-x: hidden;
+    padding: 30px 15px;
+    /* background: white; */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
     transition: width 0.5s;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    gap: 15px; 
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
+    z-index: 1; 
 }
 
-.icon-section {
+.user {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    font-size: 12px;
     padding: 10px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-left: 3px;
+    overflow: hidden;
 }
 
-.icon-section i {
-    font-size: 24px;
-    color: white;
-}
-
-.icon-section .username, 
-.icon-section .search-input, 
-.icon-section .category-title {
-    display: none; 
-    margin-left: 10px;
-}
-
-.search-input {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 5px;
-    border-radius: 3px;
-    width: 100px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding-left: 0;
-    display: none; 
-}
-
-.sidebar ul li {
-    padding: 5px 0;
-    color: white;
-}
-
-
-.logout-section {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-.logout-section i {
-    font-size: 24px;
-    color: white;
-}
-
-.logout-section .logout-text {
+.user div {
     display: none;
-    margin-left: 10px;
 }
 
-.content {
-    margin-left: 50px;
-    /* padding: 20px; 
-    transition: margin-left 0.5s;  */
+.user h2 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-img{
-    border-radius: 10px;
-}
-.imgwrap{
-    border-radius: 20px;
+.user-img {
+    width: 53px;
+    border-radius: 50%;
+    margin: auto;
 }
 
+ul {
+    list-style: none;
+    padding: 0 15px;
 
-.sidebar:hover {
+}
+
+ul li {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+ul li img {
+    width: 30px;
+    margin-right: 0px;
+}
+
+ul li p {
+    white-space: nowrap;
+    display: none;
+
+}
+
+ul li p a {
+    color: black;
+    text-decoration: none;
+
+}
+
+.side-nav:hover {
     width: 250px;
+    background-color: white;
 }
 
-
-.sidebar:hover .username, 
-.sidebar:hover .search-input, 
-.sidebar:hover .category-title, 
-.sidebar:hover ul, 
-.sidebar:hover .logout-text {
+.side-nav:hover .user div {
     display: block;
 }
 
-.category-list li{
-    margin-left: 35px;
+.side-nav:hover .user {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
 }
-a{
-    text-decoration: none;
-    color: #fff;
+
+.side-nav:hover .star-img {
+    display: block;
 }
-.linkfoods{
-    color: black;
+
+.side-nav:hover .user-img {
+    margin: 0;
 }
-.scrollbox-inner div{
-    padding-bottom: 8px;
+
+.side-nav:hover ul li p {
+    display: block;
 }
-.dis{
-    padding-left: 20px;
+
+.side-nav:hover ul li img {
+    margin-right: 10px;
 }
+
+.side-nav:hover ul li {
+    justify-content: flex-start;
+}
+
+/* layouts sidebar */

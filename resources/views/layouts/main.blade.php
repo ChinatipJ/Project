@@ -8,55 +8,48 @@
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar">
-        
-        <div class="icon-section">
-            <i class="fas fa-user user-icon"></i>
-            <span class="username">{{ \Auth::user()->name }}</span> 
-        </div>
 
-        
-        <div class="icon-section">
-            <form action="{{ route('foods.search') }}" method="get">
+{{--    
+    <div class="icon-section">
+        <form action="{{ route('foods.search') }}" method="get">
             <i class="fas fa-search search-icon"></i>
             <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
         </form>
-        </div>
-
-     
-        <div class="icon-section">
-            <i class="fas fa-th-list category-icon"></i>
-            <span class="category-title">Categories</span>
-        </div>
-
-        <ul class="category-list">
-            @foreach($categories as $category)
-            <li> <a href="{{ route('categories.list', $category->id) }}">- {{ $category->name }}</a></li>
-        @endforeach
-        </ul>
-        <a href="{{route('logout')}}">
-        <div class="logout-section">
-          
-            <i class="fas fa-sign-out-alt logout-icon"></i>
-            <span class="logout-text">Logout</span>
-       
-        </div>
-    </a>
     </div>
-    <div class="navbar">
-        <div class="logo"><a href="">DISH DELIGHT</a></div>
-        <a href="{{route('logout')}}"><i class="fa fa-fw fa-user"></i> Logout</a>
-        <a href="{{ route('foods.create') }}"><i class="fa fa-fw fa-envelope"></i> Create</a>
-        <a href="{{ route('foods.list') }}"><i class="fa fa-fw fa-envelope"></i> List</a>
-        {{-- <a href="{{ route('foods.view') }}"><i class="fa fa-fw fa-search"></i> View</a> --}}
-        <a href="{{ route('home.form') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+--}}
+<div class="main-container">
+    <div class="side-nav">
+        <div class="user">
+            <img src="{{ asset('img/pp.png') }}" class="user-img">
+            <div>
+                <h2>{{ \Auth::user()->name }}</h2>
+                <p>{{ \Auth::user()->email }}</p>
+            </div>
+        </div>
+
+        <ul>
+            <li><img src="{{ asset('img/homes.png') }}"><p><a href="{{ route('home.form') }}">Home</a></p></li>
+            <li><img src="{{ asset('img/about.png') }}"><p><a href="#">About Us</a></p></li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p><li>
+            <li>
+                <img src="{{ asset('img/category.png') }}"><p>Categories</p>
+            @foreach($categories as $category)
+                <li><p><a href="{{ route('categories.list', $category->id) }}">- {{ $category->name }}</a></p></li>
+            @endforeach
+            </li>
+
+            <a href="{{route('logout')}}"><li><p>Logout</p></li></a>
+        </ul>
     </div>
 
     <div class="content">
         @yield('content')
     </div>
+    
+</div>
 
-    {{-- <footer>
+
+    <footer>
         <div class="footer-container">
             <div class="footer-row">
                 <div class="col">
@@ -96,7 +89,8 @@
                 </div>
             </div>
         </div>
-    </footer> --}}
+    </footer>
+
 </body>
 
 </html>
