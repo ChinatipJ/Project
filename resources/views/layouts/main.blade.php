@@ -20,7 +20,7 @@
 <div class="main-container">
     <div class="side-nav">
         <div class="user">
-            <img src="{{ asset('img/pp.png') }}" class="user-img">
+            <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" class="user-img" />
             <div>
                 <h2>{{ \Auth::user()->name }}</h2>
                 <p>{{ \Auth::user()->email }}</p>
@@ -31,6 +31,7 @@
             <li><img src="{{ asset('img/homes.png') }}"><p><a href="{{ route('home.form') }}">Home</a></p></li>
             <li><img src="{{ asset('img/about.png') }}"><p><a href="#">About Us</a></p></li>
             <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p><li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Control</a></p><li>
             <li>
                 <img src="{{ asset('img/category.png') }}"><p>Categories</p>
             @foreach($categories as $category)
