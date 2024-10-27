@@ -14,21 +14,21 @@ class UserFactory extends Factory
     /**
      * The current password being used by the factory.
      */
-    protected static ?string $password;
+    protected $model = \App\Models\User::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'email_verified_at' => $this->faker->dateTimeThisYear(),
+            'password' => Hash::make('password'), // Default password
+            'role' => $this->faker->randomElement(['admin', 'user']), // Random role
+            'profile' => $this->faker->sentence(),
+            'username' => $this->faker->unique()->userName(),
+            'remember_token' => Str::random(10), // Optional remember token
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 
@@ -41,4 +41,5 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+    
 }

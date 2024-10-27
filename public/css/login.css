@@ -1,8 +1,13 @@
-body{
+* {
     margin: 0;
     padding: 0;
-    background: url;
+}
+
+body{
+    max-height: fit-content;
+    background: url('/img/5.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .title {
@@ -30,7 +35,7 @@ body{
     float: left;
     width: 50%;
     height: 400px;
-    background: url;
+    background: url('/img/5.jpg');
     background-size: cover;
     box-sizing: border-box;
 }
