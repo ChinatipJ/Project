@@ -29,6 +29,9 @@ Route::middleware([
             Route::get('/login', 'show')->name('login');
             Route::post('/login', 'authenticate')->name('authenticate');
             Route::get('/logout', 'logout')->name('logout');
+            Route::get('/register', 'showRegister')->name('register'); // แสดงฟอร์ม register
+            Route::post('/register', 'register')->name('register_submit'); // ประมวลผลการลงทะเบียน
+    
         });
 
     Route::middleware(['auth'])->group(function () {

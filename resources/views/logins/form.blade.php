@@ -27,8 +27,11 @@
                     @error('credentials')
                         <div class="warn">{{ $message }}</div>
                     @enderror
+                    <div><a href="{{ route('register')}}">Register</a></div>
             </div>
+            
         </div>
+
     </div>
     </form>
 </body>
