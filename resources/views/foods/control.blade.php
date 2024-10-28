@@ -12,11 +12,18 @@
                     <span>{{ $message }}</span>
                 </div>
             @enderror
-            @csrf
+            
+
             <main class="table">
             <form action="" method="post">
                 <section class="table-header">
+                    
                     <h1>Edit</h1>
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                     <div class="search-bar">
                         <input type="text" placeholder="Search Your Foods">
                         <img src="" alt="">

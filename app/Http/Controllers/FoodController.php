@@ -12,6 +12,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage; 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 class FoodController extends LayoutController
 {
@@ -102,21 +104,26 @@ function control(): View
 
 
 
-    function Update(string $foodid): View
-    {
-      
-        $food = Food::where('id', $foodid)
-        ->where('user_id', Auth::id())
-        ->firstOrFail();
-        $categories = Category::all();
+public function Update(string $foodid): View
+{
+    
+    $food = Food::where('id', $foodid)->firstOrFail();
 
-        return view('foods.update', [
-            'food' => $food,
-            'categories' => $categories,
-        ]);
-    }
+   
+    Gate::authorize('update', $food); 
+
+  
+    $categories = Category::all();
+
+    return view('foods.update', [
+        'food' => $food,
+        'categories' => $categories,
+    ]);
+}
+
     function delete($food) {
         $food = Food::findOrFail($food);
+        Gate::authorize('update', $food); 
         $food->delete();
         return redirect()->route('foods.control')->with('success', 'Category deleted successfully!');
 
