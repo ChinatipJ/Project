@@ -41,6 +41,7 @@
 .comment-container {
   background-color: #fff;
   margin-bottom: 20px;
+  border-radius: 0.5rem;
 }
 
 .comment-card {
@@ -65,19 +66,31 @@
   align-items: center;
 }
 
-.edit {
+.comment-footer .review-edit-button {
   background-color: rgb(149, 241, 11);
   padding: 10px 15px 10px 15px;
   border-radius: 0.5rem;
   align-items: center;
 }
 
-.delete {
+.comment-footer .review-edit-button a {
+  text-decoration: none;
+  color: #000;
+}
+
+.comment-footer .review-delete-button {
   background-color: rgb(243, 10, 10);
   padding: 10px 15px 10px 15px;
   border-radius: 0.5rem;
   align-items: center;
+
 }
+
+.comment-footer .review-delete-button a {
+  text-decoration: none;
+  color: #000;
+}
+
 
 /* contents */
 
@@ -131,6 +144,7 @@ body {
 
 .row .imgwrap {
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .row .imgwrap img {
@@ -147,6 +161,7 @@ body {
 .row .contentwrap {
   max-height: 80%;
   overflow: auto;
+  border-radius: 1rem;
 }
 
 .row .text-content {
