@@ -13,7 +13,7 @@
                 <div class="title">Add New Food</div>
 
                 @if (session('success'))
-                    <div class="alert alert-success">
+                    <div class="success-message">
                         {{ session('success') }}
                     </div>
                 @endif

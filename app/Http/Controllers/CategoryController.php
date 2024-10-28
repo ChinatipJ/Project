@@ -81,10 +81,10 @@ public function CreateNew(Request $request)
     Category::create($validated);
 
         
-        return redirect()->route('categories.control')->with('success', 'Food added successfully!');
+        return redirect()->route('categories.control')->with('success', 'Category added successfully!');
     } catch (\Exception $e) {
       
-        return redirect()->route('categories.create')->with('error', 'Failed to add food. Please try again.');
+        return redirect()->route('categories.create')->with('error', 'Failed to add category. Please try again.');
     }
 }
 

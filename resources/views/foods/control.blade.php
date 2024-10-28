@@ -20,7 +20,7 @@
                     
                     <h1>Edit</h1>
                     @if (session('success'))
-                    <div class="alert alert-success">
+                    <div class="success">
                         {{ session('success') }}
                     </div>
                 @endif

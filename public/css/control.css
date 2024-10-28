@@ -206,5 +206,29 @@ td.delete-button a {
         min-width: 12.1rem;
     }
 }
-
+.success {
+    color: green;
+}
 /* contents */
+
+.success-message {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: rgb(173, 202, 129);;
+    border: 2px solid rgb(173, 202, 129);;
+    border-radius: 2rem;
+    padding: 3px;
+    text-align: center;
+  }
+  
+  .error-message {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: red;;
+    border: 2px solid red;;
+    border-radius: 2rem;
+    padding: 3px;
+    text-align: center;
+  }
