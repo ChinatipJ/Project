@@ -4,14 +4,13 @@
     <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css') }}" />
     </head>
     <main>
 
         <body>
             <div class="container">
-                <h1>Update Category</h1>
-
+                <div class="title">Update gategory</div>
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -21,15 +20,17 @@
                 <form action="{{ route('categories.updateNew', ['category' => $category->id,]) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Category Name:</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ $category->name }}"
+                    <div class="user-details">
+                        <div class="input-box">
+                        <label class="user-details">Category Name:</label>
+                        <input type="text" name="name" id="name" value="{{ $category->name }}"
                             required>
                     </div>
 
 
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="button">
+                    <input type="submit" value="Update">
+                </div>
                 </form>
             </div>
         @endsection

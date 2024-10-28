@@ -36,6 +36,7 @@ Route::controller(CategoryController::class)
             ->name('home.')
             ->group(function () {
                 Route::get('form', 'show')->name('form');
+                Route::get('about', 'showabout')->name('about');
             });
 
 Route::middleware([

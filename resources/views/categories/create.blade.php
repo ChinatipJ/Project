@@ -4,13 +4,13 @@
     <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/food-list.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css') }}" />
     </head>
     <main>
 
         <body>
             <div class="container">
-                <h1>create Category</h1>
+                <div class="title">Create Category</div>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -21,14 +21,16 @@
                 <form action="{{ route('categories.createNew') }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Category Name:</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="user-details">Category Name:</span>
+                            <input type="text" name="name" id="name" placeholder="Enter Category Name" required>
+                        </div>
                     </div>
-
-
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="button">
+                        <input type="submit" value="Create">
+                    </div>
                 </form>
             </div>
         @endsection

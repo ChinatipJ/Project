@@ -29,11 +29,11 @@
 
         <ul>
             <li><img src="{{ asset('img/homes.png') }}"><p><a href="{{ route('home.form') }}">Home</a></p></li>
-            <li><img src="{{ asset('img/about.png') }}"><p><a href="#">About Us</a></p></li>
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p><li>
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Food Control</a></p><li>
+            <li><img src="{{ asset('img/about.png') }}"><p><a href="{{ route('home.about') }}">About Us</a></p></li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p></li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Food Control</a></p></li>
                 @can('Create', \App\Models\Category::class)
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('categories.control') }}">Category Control</a></p><li>   
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('categories.control') }}">Category Control</a></p></li>   
                 @endcan
             <li>
                 <img src="{{ asset('img/category.png') }}"><p>Categories</p>
