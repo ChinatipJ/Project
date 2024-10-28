@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -60,31 +61,42 @@ class FoodController extends LayoutController
     }
 
     public function CreateAdd(Request $request)
-    {
+{
+    try {
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'ingredient' => 'nullable|string',
+        'stepfood' => 'string',
+        'time' => 'nullable|string',
+        'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'category_id' => 'required|integer',
+    ]);
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'ingredient' => 'nullable|string',
-            'stepfood' => 'string',
-            'time' => 'nullable|string',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'required|integer',
-        ]);
 
-        $validated['user_id'] = Auth::id();
-    
+    $validated['user_id'] = Auth::id();
 
-        if ($request->hasFile('img')) {
-            $imageName = time() . '.' . $request->img->extension();
-            $request->img->move(public_path('images'), $imageName);
-            $validated['img'] = $imageName;
-        }
-    
-
-        $food = Food::create($validated);
-        return view('foods.create');
+ 
+    if ($request->hasFile('img')) {
+        $imageName = time() . '.' . $request->img->extension();
+        $request->img->move(public_path('images'), $imageName);
+        $validated['img'] = $imageName;
     }
+
+    
+        
+        Food::create($validated);
+
+        
+        return redirect()->route('foods.list')->with('success', 'Food added successfully!');
+    } catch (\Exception $e) {
+      
+        return redirect()->route('foods.create')->with('error', 'Failed to add food. Please try again.');
+    }
+}
+
+
+
     function Update(string $foodid): View
     {
       

@@ -13,6 +13,11 @@
             <span>{{ $message }}</span>
         </div>
     @enderror
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     @csrf
     <form action="" method="post">
     <div class="title-wrapper">

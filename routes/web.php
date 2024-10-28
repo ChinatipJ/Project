@@ -13,12 +13,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::controller(FoodController::class)
+    ->prefix('foods')
+    ->name('foods.')
+    ->group(function () {
+        Route::get('list', 'list')->name('list');
+        Route::get('view/{food}', 'show')->name('view');
+    });
 
+Route::get('/search', [LayoutController::class, 'handleSearch'])
+    ->name('foods.search');
 
-// Route::get('/foods/view', [FoodController::class, 'show'])->name('foods.view');
-// Route::get('/foods/list', [FoodController::class, 'list'])->name('foods.list');
-
-// Route::get('/logins/form', [LoginController::class, 'show'])->name('logins.form');
+Route::controller(CategoryController::class)
+    ->prefix('categories')
+    ->name('categories.')
+    ->group(function () {
+        // Route สำหรับแสดงรายการอาหารใน categories/list
+        Route::get('{category}/list', 'list')->name('list');
+    });
+    Route::controller(HomeController::class)
+            ->prefix('home')
+            ->name('home.')
+            ->group(function () {
+                Route::get('form', 'show')->name('form');
+            });
 
 Route::middleware([
     'cache.headers:no_store;no_cache;must_revalidate;max_age=0',
@@ -32,55 +50,40 @@ Route::middleware([
             Route::get('/logout', 'logout')->name('logout');
             Route::get('/register', 'showRegister')->name('register'); // แสดงฟอร์ม register
             Route::post('/register', 'register')->name('register_submit'); // ประมวลผลการลงทะเบียน
-    
+
         });
 
     Route::middleware(['auth'])->group(function () {
-        Route::controller(HomeController::class)
-            ->prefix('home')
-            ->name('home.')
-            ->group(function () {
-                Route::get('form', 'show')->name('form');
-            });
-
-        Route::controller(CategoryController::class)
-            ->prefix('categories')
-            ->name('categories.')
-            ->group(function () {
-                // Route สำหรับแสดงรายการอาหารใน categories/list
-                Route::get('{category}/list', 'list')->name('list');
-            });
+        
 
 
 
-        //ที่ล็อตเต้เพิ่มมา 
-        Route::get('/search', [LayoutController::class, 'handleSearch'])
-            ->name('foods.search');
+
+
 
         Route::controller(FoodController::class)
             ->prefix('foods')
             ->name('foods.')
             ->group(function () {
-                Route::get('list', 'list')->name('list');
+
                 Route::get('control', 'control')->name('control');
                 Route::get('FormCreate', 'ShowFormCreate')->name('create');
                 Route::post('Add', 'CreateAdd')->name('createAdd');
-                Route::post('update/{food}', 'updateNew')->name('updateNew'); 
-                Route::get('view/{food}', 'show')->name('view');
-                Route::get('update/{food}','update')->name('update-form');
-                Route::get('delete/{food}','delete')->name('delete-form');
+                Route::post('update/{food}', 'updateNew')->name('updateNew');
+
+                Route::get('update/{food}', 'update')->name('update-form');
+                Route::get('delete/{food}', 'delete')->name('delete-form');
             });
 
-            Route::controller(ReviewController::class)
+        Route::controller(ReviewController::class)
             ->prefix('reviews')
             ->name('reviews.')
-            ->group(function() {
+            ->group(function () {
                 Route::get('create/{food_id}', 'create')->name('create'); // แสดงฟอร์มสร้างรีวิว
                 Route::post('/', 'store')->name('store'); // จัดการการส่งฟอร์มรีวิว
                 Route::get('edit/{id}', 'edit')->name('edit'); // แสดงฟอร์มแก้ไขรีวิว
                 Route::put('{id}', 'update')->name('update'); // จัดการการอัปเดตรีวิว
                 Route::delete('{id}', 'destroy')->name('destroy'); // ลบรีวิว
             });
-
     });
 });

@@ -7,18 +7,23 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/form.css') }}" />
     </head>
     <main>
+       
 
         <body>
             <div class="container">
                 <div class="title">Add New Food</div>
-
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
+                
+            
+                <form action="{{ route('foods.createAdd') }}" method="POST" enctype="multipart/form-data">
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
                     </div>
                 @endif
 
-                <form action="{{ route('foods.createAdd') }}" method="POST" enctype="multipart/form-data">
+
+                    
+
                     @csrf
                     <div class="user-details">
                         <div class="input-box">
