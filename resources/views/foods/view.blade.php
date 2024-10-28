@@ -12,7 +12,7 @@
             <img src="{{ asset('images/' . $food->img) }}" alt="{{ $food->name }}">
         </div>
         <div class="contentwrap">
-            <div class="content">
+            <div class="text-content">
                 <h2>{{ $food->name }}</h2>
                 <h3>รายละเอียด</h3>
                 <div class="scrollbox">
