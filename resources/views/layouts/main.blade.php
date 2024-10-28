@@ -21,7 +21,7 @@
     <div class="side-nav">
         <div class="user">
             <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" class="user-img" />
-            <div>
+            <div class="user-text">
                 <h2>{{ \Auth::user()->name }}</h2>
                 <p>{{ \Auth::user()->email }}</p>
             </div>
@@ -48,6 +48,7 @@
     </div>
     
 </div>
+
 <footer>
     <div class="footer-container">
         <div class="footer-row">
@@ -87,9 +88,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
 
 </html>

@@ -21,7 +21,7 @@
     position: fixed;
     height: 100%;
     top: 0;
-    left: 0;
+    left: 5px;
     padding: 30px 15px;
     background: white;
     /* background: rgba(255, 255, 255, 0.2);
@@ -33,14 +33,16 @@
 
 .user {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 60px;
     font-size: 12px;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 8px;
-    margin-right: 10px;
-    margin-left: 3px;
+    /* margin-right: 8px;
+    margin-left: 4px; */
+    margin: 10px 0 10px 10px;
     overflow: hidden;
 }
 
@@ -52,6 +54,10 @@
     font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
+}
+
+.user .user-text {
+  padding-right: 5px;
 }
 
 .user-img {
@@ -89,6 +95,21 @@ ul li p a {
     color: black;
     text-decoration: none;
 
+}
+
+ul a li p {
+  color: #000;
+  text-decoration: none;
+  background-color: rgb(208, 88, 88);
+  padding: 10px;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+ul a {
+  text-decoration: none;
 }
 
 .side-nav:hover {
