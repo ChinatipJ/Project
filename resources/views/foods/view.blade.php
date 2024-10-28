@@ -19,9 +19,9 @@
                     <div class="scrollbox-inner">
                         <span class="dis">{{ $food->description }}</span>
                         <div><h4>ส่วนประกอบ</h4></div>  
-                        <span class="dis">{{ $food->ingredient }}</span>
-                        <div><h4>วิธีทำ</h4></div>  
-                        <span class="dis">{{ $food->stepfood }}</span>
+                        <div>{!! nl2br(e($food->ingredient)) !!}</div>
+                        <div><h4>ขั้นตอนการทำ</h4></div>  
+                        <div>{!! nl2br(e($food->stepfood)) !!}</div>
                         <div><h4>เวลาที่ใช้ในการปรุงอาหาร</h4></div>  
                         <div class="dis">{{ $food->time }}</div>
                         <div><h4>ผู้เขียนบทความ</h4></div>  
