@@ -28,8 +28,13 @@
     </div>
     @endif
 
-    <div class="create-button">
-        <a href="{{ route('foods.create') }}">CREATE</a>
+    <div class="top-bar">
+        <div class="search-bar">
+            <input type="text" placeholder="Search Foods ...">
+        </div>
+        <div class="create-button">
+            <a href="{{ route('foods.create') }}">CREATE</a>
+        </div>
     </div>
     
         <div class="data-container">
