@@ -8,7 +8,6 @@
     </head>
     <main>
        
-
         <body>
             <div class="container">
                 <div class="title">Add New Food</div>
@@ -20,11 +19,7 @@
                         <p>{{ session('error') }}</p>
                     </div>
                 @endif
-
-
-                    
-
-                    @csrf
+                @csrf
                     <div class="user-details">
                         <div class="input-box">
                             <span class="user-details">Food Name:</span>

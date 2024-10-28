@@ -33,12 +33,13 @@ Route::controller(CategoryController::class)
         // Route สำหรับแสดงรายการอาหารใน categories/list
         Route::get('{category}/list', 'list')->name('list');
     });
-Route::controller(HomeController::class)
-    ->prefix('home')
-    ->name('home.')
-    ->group(function () {
-        Route::get('form', 'show')->name('form');
-    });
+    Route::controller(HomeController::class)
+            ->prefix('home')
+            ->name('home.')
+            ->group(function () {
+                Route::get('form', 'show')->name('form');
+                Route::get('about', 'showabout')->name('about');
+            });
 
 Route::middleware([
     'cache.headers:no_store;no_cache;must_revalidate;max_age=0',

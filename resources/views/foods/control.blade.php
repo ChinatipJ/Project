@@ -24,10 +24,9 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search Your Foods">
-                        <img src="" alt="">
-                    </div>
+                <div class="create-button">
+                    <a href="{{ route('foods.create') }}">CREATE</a>
+                </div>
                 </section>
                 <section class="table-body">
                         <table>

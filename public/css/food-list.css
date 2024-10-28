@@ -82,13 +82,12 @@ body {
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  background: url();
   display: flex;
   flex-direction: column;
 }
 
 .main-container {
-  background-image: url('/img/sea.jpg');
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -115,6 +114,18 @@ h3 {
   text-align: center;
   min-height: 500px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
+}
+
+.linkfoods {
+  text-decoration: none;
+}
+
+.card h2 {
+  color: #000;
+}
+
+.card p {
+  color: #000;
 }
 
 .container {

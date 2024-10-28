@@ -1,8 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+<html>
+<head>
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
-    <!-- Review Form -->
+</head>
+    
+<main>
 
     <body>
         <div class="container">
@@ -30,5 +34,8 @@
                     </div>
                 </div>
             </form>
+        </div>
     </body>
+</main>
+</html>
 @endsection
