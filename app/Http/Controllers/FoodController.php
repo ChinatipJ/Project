@@ -20,20 +20,24 @@ class FoodController extends LayoutController
     
     public function show($food): View
 {
-    
+
     $food = Food::with('user')->findOrFail($food);
 
+
     $reviews = DB::table('foods2reviews')
-    ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
-    ->join('users', 'reviews.user_id', '=', 'users.id') 
-    ->orderBy('reviews.created_at', 'desc')
-    ->select('reviews.*', 'users.name as user_name') 
-    ->get();
-   
+        ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
+        ->join('users', 'reviews.user_id', '=', 'users.id')
+        ->where('foods2reviews.food_id', $food->id)
+        ->orderBy('reviews.created_at', 'desc')
+        ->select('reviews.*', 'users.name as user_name')
+        ->get();
+
+
     $averageRating = round($food->reviews()->average('star'), 2) ?? 0;
 
     return view('foods.view', compact('food', 'averageRating', 'reviews'));
 }
+
 
 function control(): View
 {
