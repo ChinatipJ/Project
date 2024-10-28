@@ -88,5 +88,33 @@ public function CreateNew(Request $request)
     }
 }
 
-   
+public function handleSearch(Request $request)
+{
+    // Prepare search input
+    $search = $this->prepareSearch($request->all());
+
+    // Get the filtered foods
+    $categories = $this->filter($this->getQuery(), $search)->get();
+
+    // Return the results to a view
+    return view('categories.list',[
+        'categories'=>$categories,
+        'search'=>$search
+    ]);
+} 
+public function Search2(Request $request)
+{
+    // Prepare search input
+    $search = $this->prepareSearch($request->all());
+
+    // Get the filtered foods
+    $categories = $this->filter($this->getQuery(), $search)->get();
+
+    // Return the results to a view
+    return view('categories.control',[
+        'categories'=>$categories,
+        'search'=>$search
+    ]);
+} 
+
 }

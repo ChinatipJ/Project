@@ -174,4 +174,32 @@ public function Update(string $foodid): View
         return redirect()->route('foods.control')->with('success', 'Food updated successfully!');
     }
     
+    public function handleSearch(Request $request)
+    {
+        // Prepare search input
+        $search = $this->prepareSearch($request->all());
+
+        // Get the filtered foods
+        $foods = $this->filter($this->getQuery(), $search)->get();
+
+        // Return the results to a view
+        return view('foods.list',[
+            'foods'=>$foods,
+            'search'=>$search
+        ]);
+    } 
+    public function Search2(Request $request)
+    {
+        // Prepare search input
+        $search = $this->prepareSearch($request->all());
+
+        // Get the filtered foods
+        $foods = $this->filter($this->getQuery(), $search)->get();
+
+
+        return view('foods.control',[
+            'foods'=>$foods,
+            'search'=>$search
+        ]);
+    } 
 }    

@@ -15,7 +15,7 @@
             
 
             <main class="table">
-            <form action="" method="post">
+          
                 <section class="table-header">
                     
                     <h1>Edit</h1>
@@ -24,6 +24,12 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                <div class="icon-section">
+                    <form action="{{ route('foods.search2') }}" method="get">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+                    </form>
+            </div>
                 <div class="create-button">
                     <a href="{{ route('foods.create') }}">CREATE</a>
                 </div>

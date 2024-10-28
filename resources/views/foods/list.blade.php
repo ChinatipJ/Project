@@ -8,8 +8,7 @@
 
 <main>
 <body>
-    @csrf
-    <form action="" method="post">
+   
 <div class="container">
     <div class="title-wrapper">
         <div class="title">
@@ -27,7 +26,12 @@
         {{ session('success') }}
     </div>
     @endif
-
+    <div class="icon-section">
+        <form action="{{ route('foods.search') }}" method="get">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+        </form>
+</div>
     <div class="create-button">
         <a href="{{ route('foods.create') }}">CREATE</a>
     </div>
@@ -46,7 +50,7 @@
             @endforeach
         </div>
     </div>
-    </form>
+   
 </body>
 </main>
 

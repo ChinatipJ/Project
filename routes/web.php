@@ -21,6 +21,9 @@ Route::controller(FoodController::class)
     ->group(function () {
         Route::get('list', 'list')->name('list');
         Route::get('view/{food}', 'show')->name('view');
+        Route::get('search',  'handleSearch')->name('search'); 
+        Route::get('search2',  'Search2')->name('search2'); 
+   
     });
 
 Route::get('/search', [LayoutController::class, 'handleSearch'])
@@ -32,6 +35,8 @@ Route::controller(CategoryController::class)
     ->group(function () {
         // Route สำหรับแสดงรายการอาหารใน categories/list
         Route::get('{category}/list', 'list')->name('list');
+        Route::get('search',  'handleSearch')->name('search'); 
+        Route::get('search2',  'Search2')->name('search2'); 
     });
     Route::controller(HomeController::class)
             ->prefix('home')

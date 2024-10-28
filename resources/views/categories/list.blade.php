@@ -8,15 +8,20 @@
     <main>
 
         <body>
-            @csrf
-            <form action="" method="post">
+            
+
                 <div class="container">
                     <div class="title-wrapper">
                         <div class="title">
                             <h2>{{$category->name}}</h2>
                         </div>
                     </div>
-
+                    <div class="icon-section">
+                        <form action="{{ route('categories.search') }}" method="get">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+                        </form>
+                </div>
                     @error('error')
                         <div>
                             <span>{{ $message }}</span>
@@ -40,7 +45,7 @@
                             @endforelse
                         </div>
                     </div>
-            </form>
+
 
         </body>
     </main>
