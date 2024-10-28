@@ -82,13 +82,12 @@ body {
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  background: url();
   display: flex;
   flex-direction: column;
 }
 
 .main-container {
-  background-image: url('/img/sea.jpg');
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
