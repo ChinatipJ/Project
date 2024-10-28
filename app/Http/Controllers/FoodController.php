@@ -17,14 +17,23 @@ class FoodController extends LayoutController
     // {
     //     return view('foods.view');
     // }
-    function show($food): View
-    {
-      
-        $food = Food::findOrFail($food);
+    public function show($food): View
+{
+    // ดึงข้อมูลอาหารพร้อมกับผู้ใช้
+    $food = Food::with('user')->findOrFail($food);
 
-       
-        return view('foods.view', compact('food'));
-    }
+    $reviews = DB::table('foods2reviews')
+    ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
+    ->join('users', 'reviews.user_id', '=', 'users.id') // ดึงข้อมูลผู้ใช้
+    ->where('foods2reviews.food_id', $food->id)
+    ->orderBy('reviews.created_at', 'desc')
+    ->select('reviews.*', 'users.name as user_name') // เลือกข้อมูลรีวิวและชื่อผู้ใช้
+    ->get();
+    // คำนวณค่าเฉลี่ยของรีวิว
+    $averageRating = round($food->reviews()->average('star'), 2) ?? 0;
+
+    return view('foods.view', compact('food', 'averageRating', 'reviews'));
+}
 
     function control(Request $request): View
 {

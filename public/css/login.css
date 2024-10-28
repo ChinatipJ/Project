@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body{
+body {
     max-height: fit-content;
     background: url('/img/5.jpg');
     background-size: cover;
@@ -28,7 +28,7 @@ body{
     background: #fff;
     margin: 0 auto;
     border: 2px solid #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
 }
 
 .container .left {
@@ -68,22 +68,21 @@ body{
 }
 
 .formBox input[type="text"],
-.formBox input[type="password"]
-{
-   border: none;
-   border-bottom: 2px solid black;
-   outline: none;
-   height: 40px;
+.formBox input[type="email"],
+.formBox input[type="password"] {
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    height: 40px;
 }
 
 .formBox input[type="text"]:focus,
-.formBox input[type="password"]:focus
-{
+.formBox input[type="email"],
+.formBox input[type="password"]:focus {
     border-bottom: 2px solid black;
 }
 
-.formBox button[type="submit"]
-{
+.formBox button[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -93,7 +92,15 @@ body{
     width: 100%;
 }
 
-.formBox button[type="submit"]:hover
-{
-  background: black;  
+.formBox button[type="submit"]:hover {
+    background: black;
+}
+
+.register a {
+    color: black;
+    text-decoration: none;
+}
+
+.register {
+    padding-bottom: 20px;
 }

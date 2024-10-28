@@ -23,11 +23,14 @@
                     <p>
                         Password <input type="password" name="password" placeholder="password" required />
                     </p>
+
+                    <div class="register"><a href="{{ route('register')}}">Register</a></div>
+
                     <button type="submit">Login</button>
                     @error('credentials')
                         <div class="warn">{{ $message }}</div>
                     @enderror
-                    <div><a href="{{ route('register')}}">Register</a></div>
+                    
             </div>
             
         </div>

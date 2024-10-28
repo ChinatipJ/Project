@@ -5,6 +5,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -69,5 +70,17 @@ Route::middleware([
                 Route::get('update/{food}','update')->name('update-form');
                 Route::get('delete/{food}','delete')->name('delete-form');
             });
+
+            Route::controller(ReviewController::class)
+            ->prefix('reviews')
+            ->name('reviews.')
+            ->group(function() {
+                Route::get('create/{food_id}', 'create')->name('create'); // แสดงฟอร์มสร้างรีวิว
+                Route::post('/', 'store')->name('store'); // จัดการการส่งฟอร์มรีวิว
+                Route::get('edit/{id}', 'edit')->name('edit'); // แสดงฟอร์มแก้ไขรีวิว
+                Route::put('{id}', 'update')->name('update'); // จัดการการอัปเดตรีวิว
+                Route::delete('{id}', 'destroy')->name('destroy'); // ลบรีวิว
+            });
+
     });
 });
