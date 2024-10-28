@@ -26,14 +26,20 @@
         {{ session('success') }}
     </div>
     @endif
-    <div class="icon-section">
-        <form action="{{ route('foods.search') }}" method="get">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
-        </form>
-</div>
+   
     <div class="create-button">
         <a href="{{ route('foods.create') }}">CREATE</a>
+
+    <div class="top-bar">
+        
+        <div class="search-bar">
+            <form action="{{ route('foods.search') }}" method="get">
+            <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+        </form>
+        </div>
+        <div class="create-button">
+            <a href="{{ route('foods.create') }}">CREATE</a>
+        </div>
     </div>
     
         <div class="data-container">
