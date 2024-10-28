@@ -50,7 +50,7 @@ class ReviewController extends LayoutController
 {
     $review = Review::findOrFail($id);
 
-    // ตรวจสอบว่าผู้ใช้ที่ล็อกอินคือเจ้าของรีวิวหรือไม่
+
     if ($review->user_id === Auth::id()) {
         $review->delete();
         return redirect()->back()->with('success', 'Review deleted successfully!');

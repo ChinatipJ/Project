@@ -17,9 +17,11 @@
                 <h3>รายละเอียด</h3>
                 <div class="scrollbox">
                     <div class="scrollbox-inner">
-                        <div class="dis">{{ $food->description }}</div>
+                        <span class="dis">{{ $food->description }}</span>
                         <div><h4>ส่วนประกอบ</h4></div>  
-                        <div class="dis">{{ $food->ingredient }}</div>
+                        <div>{!! nl2br(e($food->ingredient)) !!}</div>
+                        <div><h4>ขั้นตอนการทำ</h4></div>  
+                        <div>{!! nl2br(e($food->stepfood)) !!}</div>
                         <div><h4>เวลาที่ใช้ในการปรุงอาหาร</h4></div>  
                         <div class="dis">{{ $food->time }} นาที</div>
                         <div><h4>ผู้เขียนบทความ</h4></div>  

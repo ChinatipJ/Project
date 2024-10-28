@@ -14,23 +14,19 @@ use Illuminate\Support\Facades\Storage;
 
 class FoodController extends LayoutController
 {
-    // function show(): View
-    // {
-    //     return view('foods.view');
-    // }
+    
     public function show($food): View
 {
-    // ดึงข้อมูลอาหารพร้อมกับผู้ใช้
+    
     $food = Food::with('user')->findOrFail($food);
 
     $reviews = DB::table('foods2reviews')
     ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
-    ->join('users', 'reviews.user_id', '=', 'users.id') // ดึงข้อมูลผู้ใช้
-    ->where('foods2reviews.food_id', $food->id)
+    ->join('users', 'reviews.user_id', '=', 'users.id') 
     ->orderBy('reviews.created_at', 'desc')
-    ->select('reviews.*', 'users.name as user_name') // เลือกข้อมูลรีวิวและชื่อผู้ใช้
+    ->select('reviews.*', 'users.name as user_name') 
     ->get();
-    // คำนวณค่าเฉลี่ยของรีวิว
+   
     $averageRating = round($food->reviews()->average('star'), 2) ?? 0;
 
     return view('foods.view', compact('food', 'averageRating', 'reviews'));
@@ -38,7 +34,7 @@ class FoodController extends LayoutController
 
     function control(Request $request): View
 {
-    // ดึงข้อมูลรายการอาหารที่ผู้ใช้ที่ล็อกอินเป็นคนสร้าง
+   
     $foods = Food::where('user_id', Auth::id())
                  ->orderBy('created_at', 'DESC')
                  ->get();
@@ -72,7 +68,7 @@ class FoodController extends LayoutController
         'category_id' => 'required|integer',
     ]);
 
-
+    
     $validated['user_id'] = Auth::id();
 
  
@@ -137,6 +133,7 @@ class FoodController extends LayoutController
         $food->name = $request->name;
         $food->description = $request->description;
         $food->ingredient = $request->ingredient;
+        $food->stepfood = $request->stepfood;
         $food->time = $request->time;
         $food->category_id = $request->category_id;
     
