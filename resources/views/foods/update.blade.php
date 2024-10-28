@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="time">Stepfood:</label>
-                        <textarea name="description" id="description" class="form-control">{{ $food->description }}</textarea>
+                        <textarea name="stepfood" id="stepfood" class="form-control">{{ $food->stepfood }}</textarea>
                     </div>
 
                     <div class="form-group">

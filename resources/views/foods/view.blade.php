@@ -17,11 +17,13 @@
                 <h3>รายละเอียด</h3>
                 <div class="scrollbox">
                     <div class="scrollbox-inner">
-                        <div class="dis">{{ $food->description }}</div>
+                        <span class="dis">{{ $food->description }}</span>
                         <div><h4>ส่วนประกอบ</h4></div>  
-                        <div class="dis">{{ $food->ingredient }}</div>
+                        <span class="dis">{{ $food->ingredient }}</span>
+                        <div><h4>วิธีทำ</h4></div>  
+                        <span class="dis">{{ $food->stepfood }}</span>
                         <div><h4>เวลาที่ใช้ในการปรุงอาหาร</h4></div>  
-                        <div class="dis">{{ $food->time }} นาที</div>
+                        <div class="dis">{{ $food->time }}</div>
                         <div><h4>ผู้เขียนบทความ</h4></div>  
                         <div class="dis">{{ $food->user->name }}</div>
                         <div><h3>Rate Reviews {{ $averageRating }}</h3></div>
