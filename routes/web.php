@@ -57,7 +57,20 @@ Route::middleware([
         
 
 
+        Route::controller(CategoryController::class)
+        ->prefix('categories')
+        ->name('categories.')
+        ->group(function () {
+           
+            Route::get('control', 'control')->name('control');
+            Route::get('create', 'create')->name('create');
+            Route::post('createNew', 'createNew')->name('createNew');
+            Route::post('update/{category}', 'updateNew')->name('updateNew');
+            Route::get('update/{category}', 'update')->name('update-form');
+            Route::get('delete/{category}', 'delete')->name('delete-form');
 
+
+        });
 
 
 
@@ -70,7 +83,6 @@ Route::middleware([
                 Route::get('FormCreate', 'ShowFormCreate')->name('create');
                 Route::post('Add', 'CreateAdd')->name('createAdd');
                 Route::post('update/{food}', 'updateNew')->name('updateNew');
-
                 Route::get('update/{food}', 'update')->name('update-form');
                 Route::get('delete/{food}', 'delete')->name('delete-form');
             });

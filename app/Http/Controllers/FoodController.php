@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage; 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 
 class FoodController extends LayoutController
 {
@@ -33,24 +33,35 @@ class FoodController extends LayoutController
     return view('foods.view', compact('food', 'averageRating', 'reviews'));
 }
 
-    function control(Request $request): View
+function control(): View
 {
-   
-    $foods = Food::where('user_id', Auth::id())
-                 ->orderBy('created_at', 'DESC')
-                 ->get();
+
+    if (Auth::user()->role === 'ADMIN') {
+
+        $foods = Food::orderBy('created_at', 'DESC')->get();
+
+    } else {
+
+        $foods = Food::where('user_id', Auth::id())
+                     ->orderBy('created_at', 'DESC')
+                     ->get();
+
+    }
 
     return view('foods.control', compact('foods'));
 }
 
-    function list(Request $request): View
+
+
+
+    function list(): View
     {
         $foods = Food::orderBy('created_at', 'DESC')->get();
         return view('foods.list',compact('foods'));
 
     }
 
-    function ShowFormCreate(Request $request): View
+    function ShowFormCreate(): View
     {
         $categories = Category::all();
         return view('foods.create',compact('categories'));
@@ -78,10 +89,8 @@ class FoodController extends LayoutController
         $request->img->move(public_path('images'), $imageName);
         $validated['img'] = $imageName;
     }
-
-    
-        
-        Food::create($validated);
+ 
+    Food::create($validated);
 
         
         return redirect()->route('foods.list')->with('success', 'Food added successfully!');
@@ -109,10 +118,7 @@ class FoodController extends LayoutController
     function delete($food) {
         $food = Food::findOrFail($food);
         $food->delete();
-        $foods = Food::where('user_id', Auth::id())
-        ->orderBy('created_at', 'DESC')
-        ->get();
-        return view('foods.control',compact('foods'));
+        return redirect()->route('foods.control')->with('success', 'Category deleted successfully!');
 
     }
 
