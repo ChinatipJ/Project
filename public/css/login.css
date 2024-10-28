@@ -5,9 +5,15 @@
 
 body {
     max-height: fit-content;
-    background: url('/img/5.jpg');
+    background: url('/img/sea.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+
+    background-attachment: fixed;
+    backdrop-filter: blur(4px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -18,11 +24,12 @@ body {
 .title h1 {
     margin: 0;
     padding: 0;
-    color: black;
+    color: #fff;
     text-transform: uppercase;
 }
 
 .container {
+    padding: 5px;
     width: 50%;
     height: 400px;
     background: #fff;
@@ -68,7 +75,6 @@ body {
 }
 
 .formBox input[type="text"],
-.formBox input[type="email"],
 .formBox input[type="password"] {
     border: none;
     border-bottom: 2px solid black;
@@ -77,7 +83,6 @@ body {
 }
 
 .formBox input[type="text"]:focus,
-.formBox input[type="email"],
 .formBox input[type="password"]:focus {
     border-bottom: 2px solid black;
 }
@@ -103,4 +108,55 @@ body {
 
 .register {
     padding-bottom: 20px;
+}
+
+/* (Register) */
+
+.formBox2 {
+    width: 100%;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    height: 400px;
+    background: #fff;
+}
+
+.formBox2 p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: black;
+}
+
+.formBox2 input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.formBox2 input[type="text"],
+.formBox2 input[type="email"],
+.formBox2 input[type="password"] {
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    height: 40px;
+}
+
+.formBox2 input[type="text"]:focus,
+.formBox2 input[type="email"]:focus,
+.formBox2 input[type="password"]:focus {
+    border-bottom: 2px solid black;
+}
+
+.formBox2 button[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background: black;
+    cursor: pointer;
+    width: 100%;
+}
+
+.formBox2 button[type="submit"]:hover {
+    background: black;
 }

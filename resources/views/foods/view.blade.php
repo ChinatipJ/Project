@@ -23,7 +23,7 @@
                         <div><h4>ขั้นตอนการทำ</h4></div>  
                         <div>{!! nl2br(e($food->stepfood)) !!}</div>
                         <div><h4>เวลาที่ใช้ในการปรุงอาหาร</h4></div>  
-                        <div class="dis">{{ $food->time }} นาที</div>
+                        <div class="dis">{{ $food->time }}</div>
                         <div><h4>ผู้เขียนบทความ</h4></div>  
                         <div class="dis">{{ $food->user->name }}</div>
                         <div><h3>Rate Reviews {{ $averageRating }}</h3></div>

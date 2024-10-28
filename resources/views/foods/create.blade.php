@@ -42,7 +42,7 @@
                         </div>
                         <div class="input-box">
                             <span class="user-details">Stepfood:</span>
-                            <textarea name="description" placeholder="Enter Here"></textarea>
+                            <textarea name="stepfood" placeholder="Enter Here"></textarea>
                         </div>
 
                         <div class="input-box">

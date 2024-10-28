@@ -20,7 +20,7 @@ body{
 }
 .container .title{
     padding-bottom: 30px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight:bold;
     text-align: center;
 }
@@ -67,7 +67,7 @@ body{
     border-radius: 5px;
     border: 1px solid #ccc;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 10px;
 }
 
@@ -84,7 +84,7 @@ body{
     border-radius: 5px;
     border: 1px solid #ccc;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 10px;
 }
 /* .user-details .input-box input:focus,
