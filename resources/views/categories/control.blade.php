@@ -12,11 +12,17 @@
                     <span>{{ $message }}</span>
                 </div>
             @enderror
+            
             @csrf
             <main class="table">
             <form action="" method="post">
                 <section class="table-header">
                     <h1>Edit</h1>
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                         <div class="create-button">
                             <a href="{{ route('categories.create') }}">CREATE</a>
                         </div>

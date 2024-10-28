@@ -12,11 +12,7 @@
             <div class="container">
                 <div class="title">Create Category</div>
 
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+             
 
                 <form action="{{ route('categories.createNew') }}" method="POST" enctype="multipart/form-data">
 
