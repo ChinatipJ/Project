@@ -62,6 +62,14 @@ class LoginController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'profile' => 'nullable|string|max:45',
+        ],[
+            'name.required' => 'กรุณากรอกชื่อ',
+            'email.required' => 'กรุณากรอกอีเมล',
+            'email.email' => 'กรุณากรอกอีเมลที่ถูกต้อง',
+            'email.unique' => 'อีเมลนี้ถูกใช้งานแล้ว',
+            'password.required' => 'กรุณากรอกรหัสผ่าน',
+            'password.min' => 'รหัสผ่านต้องมีอย่างน้อย :min ตัวอักษร',
+            'password.confirmed' => 'กรุณายืนยันรหัสผ่านให้ตรงกัน',
         ]);
     
 
