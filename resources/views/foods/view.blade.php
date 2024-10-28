@@ -55,11 +55,15 @@
                         <p>Rating: {{ $review->star }} Stars</p>
                         <div class="comment-footer">
                             @if ($review->user_id === Auth::id())
-                                <a href="{{ route('reviews.edit', $review->id) }}" class="edit">Edit</a>
-                                <form action="{{ route('reviews.destroy', $review->id) }}" method="post" style="display:inline;">
+                                <div class="review-edit-button">
+                                    <a href="{{ route('reviews.edit', $review->id) }}">Edit</a>
+                                </div>
+                                {{-- <form action="{{ route('reviews.destroy', $review->id) }}" method="post" style="display:inline;"> --}}
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="delete">Delete</button>
+                                    <div class="review-delete-button">
+                                        <a href="{{ route('reviews.destroy', $review->id) }}">Delete</a>
+                                    </div>
                                 </form>
                             @endif
                         </div>
