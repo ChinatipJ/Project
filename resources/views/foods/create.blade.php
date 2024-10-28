@@ -16,8 +16,8 @@
             
                 <form action="{{ route('foods.createAdd') }}" method="POST" enctype="multipart/form-data">
                     @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
+                    <div class="error-message">
+                        <p>{{ session('error') }}</p>
                     </div>
                 @endif
 

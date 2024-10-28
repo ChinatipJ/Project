@@ -15,7 +15,7 @@ html {
 .title-wrapper {
   font-family: 'Poppins', sans-serif;
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +54,30 @@ html {
   }
 }
 
+.success-message {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  color: rgb(173, 202, 129);;
+  border: 2px solid rgb(173, 202, 129);;
+  border-radius: 2rem;
+  padding: 3px;
+  text-align: center;
+}
+
+.create-button {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.create-button a {
+  color: #000;
+  text-decoration: none;
+  background-color: rgb(173, 202, 129);
+  padding: 10px;
+  border-radius: 2rem;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -83,9 +107,6 @@ body {
 h3 {
   text-align: center;
 }
-.content {
-  margin-left: 150px;
-}
 
 .card {
   padding: 2em;
@@ -97,6 +118,10 @@ h3 {
 }
 
 .container {
+  margin-left: 150px;
+}
+
+.data-container {
   padding: min(50px, 7%);
   display: grid;
   /* border: 1px solid red; */
