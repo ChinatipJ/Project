@@ -14,6 +14,14 @@
     <div class="container">
         <div class="left"></div>
         <div class="right">
+
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+
             <div class="formBox">
                 <form action="{{ route('authenticate') }}" method="post">
                     @csrf
