@@ -20,7 +20,7 @@
 <div class="main-container">
     <div class="side-nav">
         <div class="user">
-            <img src="{{ asset('img/pp.png') }}" class="user-img">
+            <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" class="user-img" />
             <div>
                 <h2>{{ \Auth::user()->name }}</h2>
                 <p>{{ \Auth::user()->email }}</p>
@@ -31,6 +31,7 @@
             <li><img src="{{ asset('img/homes.png') }}"><p><a href="{{ route('home.form') }}">Home</a></p></li>
             <li><img src="{{ asset('img/about.png') }}"><p><a href="#">About Us</a></p></li>
             <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p><li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Control</a></p><li>
             <li>
                 <img src="{{ asset('img/category.png') }}"><p>Categories</p>
             @foreach($categories as $category)
@@ -47,49 +48,47 @@
     </div>
     
 </div>
-
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-row">
-                <div class="col">
-                    <a href="" class="footer-logo">Logo</a>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa amet autem odio velit illum tempore 
-                    vitae consequatur veritatis nam ab quae voluptatibus.</p>
-                    <ul class="social">
-                        <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>Some Link</h4>
-                    <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>Some Link</h4>
-                    <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>Some Link</h4>
-                    <ul>
-                        <li><a href="">Link 1</a></li>
-                        <li><a href="">Link 2</a></li>
-                        <li><a href="">Link 3</a></li>
-                    </ul>
-                </div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-row">
+            <div class="col">
+                <a href="" class="footer-logo">Logo</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa amet autem odio velit illum tempore 
+                vitae consequatur veritatis nam ab quae voluptatibus.</p>
+                <ul class="social">
+                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Some Link</h4>
+                <ul>
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Some Link</h4>
+                <ul>
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4>Some Link</h4>
+                <ul>
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 

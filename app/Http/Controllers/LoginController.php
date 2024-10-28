@@ -48,4 +48,34 @@ class LoginController extends Controller
             'credentials' => 'The provided credentials do not match our records.',
         ]);
     }
+    public function showRegister()
+    {
+
+        return view('logins.register'); 
+    }
+
+    public function register(Request $request)
+    {
+   
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'profile' => 'nullable|string|max:45',
+        ]);
+    
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password), 
+            'role' => 'USER', 
+            'profile' => $request->profile,
+        ]);
+    
+
+        return redirect()->route('login')->with('success', 'Registration successful! You are now logged in.');
+    }
+    
+
 }

@@ -29,6 +29,9 @@ Route::middleware([
             Route::get('/login', 'show')->name('login');
             Route::post('/login', 'authenticate')->name('authenticate');
             Route::get('/logout', 'logout')->name('logout');
+            Route::get('/register', 'showRegister')->name('register'); // แสดงฟอร์ม register
+            Route::post('/register', 'register')->name('register_submit'); // ประมวลผลการลงทะเบียน
+    
         });
 
     Route::middleware(['auth'])->group(function () {
@@ -51,18 +54,20 @@ Route::middleware([
 
         //ที่ล็อตเต้เพิ่มมา 
         Route::get('/search', [LayoutController::class, 'handleSearch'])
-        ->name('foods.search');
+            ->name('foods.search');
 
         Route::controller(FoodController::class)
             ->prefix('foods')
             ->name('foods.')
             ->group(function () {
-                // Route::get('view', 'show')->name('view');
                 Route::get('list', 'list')->name('list');
-                
+                Route::get('control', 'control')->name('control');
                 Route::get('FormCreate', 'ShowFormCreate')->name('create');
                 Route::post('Add', 'CreateAdd')->name('createAdd');
+                Route::post('update/{food}', 'updateNew')->name('updateNew'); 
                 Route::get('view/{food}', 'show')->name('view');
+                Route::get('update/{food}','update')->name('update-form');
+                Route::get('delete/{food}','delete')->name('delete-form');
             });
     });
 });
