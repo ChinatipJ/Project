@@ -20,7 +20,12 @@
 <div class="main-container">
     <div class="side-nav">
         <div class="user">
-            <img src="{{ Avatar::create(Auth::check() ? Auth::user()->name : 'view')->toBase64() }}" class="user-img" />
+            <a href="{{ Auth::check() ? route('users.self',Auth::user()->id) : route('login') }}">
+                <img src="{{ Avatar::create(Auth::check() ? Auth::user()->name : 'view')->toBase64() }}" class="user-img" />
+            </a>
+            
+         
+           
             <div>
                 <h2>{{ Auth::check() ? Auth::user()->name : 'viewer' }}</h2>
 <p>{{ Auth::check() ? Auth::user()->email : '' }}</p>
