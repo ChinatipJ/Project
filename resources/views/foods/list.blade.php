@@ -13,8 +13,7 @@
 <div class="container">
     <div class="title-wrapper">
         <div class="title">
-            <h2>*เมนู*</h2>
-            <h2>*เมนู*</h2>
+            <h2>รายการอาหาร</h2>
         </div>
     </div>
 

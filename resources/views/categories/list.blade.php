@@ -14,7 +14,6 @@
                     <div class="title-wrapper">
                         <div class="title">
                             <h2>{{$category->name}}</h2>
-                            <h2>{{$category->name}}</h2>
                         </div>
                     </div>
 
