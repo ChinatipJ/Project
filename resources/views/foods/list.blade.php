@@ -27,8 +27,7 @@
     </div>
     @endif
    
-    <div class="create-button">
-        <a href="{{ route('foods.create') }}">CREATE</a>
+  
 
     <div class="top-bar">
         

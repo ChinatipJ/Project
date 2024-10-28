@@ -13,7 +13,11 @@
                 </div>
             @enderror
             
-
+            <div class="search-bar">
+                <form action="{{ route('foods.search2') }}" method="get">
+                <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+            </form>
+            </div>
             <main class="table">
           
                 <section class="table-header">
@@ -24,12 +28,7 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <div class="icon-section">
-                    <form action="{{ route('foods.search2') }}" method="get">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
-                    </form>
-            </div>
+                
                 <div class="create-button">
                     <a href="{{ route('foods.create') }}">CREATE</a>
                 </div>

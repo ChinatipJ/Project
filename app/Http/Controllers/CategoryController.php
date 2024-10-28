@@ -98,7 +98,7 @@ public function handleSearch(Request $request)
 
     // Return the results to a view
     return view('categories.list',[
-        'categories'=>$categories,
+        'category'=>$categories,
         'search'=>$search
     ]);
 } 

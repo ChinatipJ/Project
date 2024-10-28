@@ -15,12 +15,12 @@
             
             @csrf
             <main class="table">
-                <div class="icon-section">
+                {{-- <div class="icon-section">
                     <form action="{{ route('categories.search2') }}" method="get">
                         <i class="fas fa-search search-icon"></i>
                         <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
                     </form>
-            </div>
+            </div> --}}
                 <section class="table-header">
                     <h1>Edit</h1>
                     @if (session('success'))

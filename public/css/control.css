@@ -232,3 +232,19 @@ td.delete-button a {
     padding: 3px;
     text-align: center;
   }
+
+
+  
+  .search-bar input {
+    padding: 15px;
+    width: 700px;
+    border-radius: 2rem;
+    border: none;
+  }
+  
+  .search-bar {
+    text-align: center;
+    padding: 40px;
+    margin: 30px;
+    
+  }
