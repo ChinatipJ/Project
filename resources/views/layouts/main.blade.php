@@ -56,9 +56,8 @@
     <div class="footer-container">
         <div class="footer-row">
             <div class="col">
-                <a href="" class="footer-logo">Logo</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa amet autem odio velit illum tempore 
-                vitae consequatur veritatis nam ab quae voluptatibus.</p>
+                <a href="" class="footer-logo">DISHDELIGHT</a>
+                <p>" เราเชื่อว่าการทำอาหารควรเป็นเรื่องสนุกและเต็มไปด้วยความสุข เว็บไซต์ของเรารวบรวมสูตรอาหารหลากหลาย ทั้งเมนูคาว หวาน และเพื่อสุขภาพ ให้คุณได้ลองสร้างสรรค์มื้ออร่อยที่บ้านได้ง่ายๆ ทุกวัน มาร่วมเพลิดเพลินกับการทำอาหารที่ไม่ยุ่งยากไปกับเรา !! " </p>
                 <ul class="social">
                     <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
@@ -66,32 +65,9 @@
                     <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
                 </ul>
             </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+
 </body>
 
 </html>

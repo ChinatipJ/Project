@@ -116,6 +116,18 @@ h3 {
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5);
 }
 
+.linkfoods {
+  text-decoration: none;
+}
+
+.card h2 {
+  color: #000;
+}
+
+.card p {
+  color: #000;
+}
+
 .container {
   margin-left: 150px;
 }

@@ -17,11 +17,9 @@
             <form action="" method="post">
                 <section class="table-header">
                     <h1>Edit</h1>
-                    <h1><a href="{{route('categories.create')}}">Create</a></h1>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search Your Foods">
-                        <img src="" alt="">
-                    </div>
+                        <div class="create-button">
+                            <a href="{{ route('categories.create') }}">CREATE</a>
+                        </div>
                 </section>
                 <section class="table-body">
                         <table>

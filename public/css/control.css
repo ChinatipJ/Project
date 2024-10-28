@@ -35,6 +35,19 @@ body {
     padding-bottom: 10px;
 }
 
+.create-button {
+    text-align: center;
+    margin: 10px;
+}
+  
+.create-button a {
+    color: #000;
+    text-decoration: none;
+    background-color: rgb(126, 153, 220);
+    padding: 10px;
+    border-radius: 2rem;
+}
+
 main.table {
     width: 82vw;
     /* height: 90vh; */

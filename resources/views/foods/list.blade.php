@@ -13,8 +13,8 @@
 <div class="container">
     <div class="title-wrapper">
         <div class="title">
-            <h2>Food</h2>
-            <h2>Food</h2>
+            <h2>FoodList</h2>
+            <h2>FoodList</h2>
         </div>
     </div>
 

@@ -11,26 +11,25 @@
         <body>
             <div class="container">
                 <div class="title">Update gategory</div>
+
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
                     </div>
                 @endif
-
                 <form action="{{ route('categories.updateNew', ['category' => $category->id,]) }}" method="POST" enctype="multipart/form-data">
-
-                    @csrf
+                @csrf
                     <div class="user-details">
                         <div class="input-box">
                         <label class="user-details">Category Name:</label>
-                        <input type="text" name="name" id="name" value="{{ $category->name }}"
-                            required>
+                        <input type="text" name="name" id="name" value="{{ $category->name }}" required>
+                        </div>
                     </div>
 
-
                     <div class="button">
-                    <input type="submit" value="Update">
-                </div>
+                        <input type="submit" value="Update">
+                    </div>
                 </form>
             </div>
-        @endsection
+        </body>
+@endsection

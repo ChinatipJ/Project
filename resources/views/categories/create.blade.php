@@ -33,4 +33,7 @@
                     </div>
                 </form>
             </div>
-        @endsection
+        </body>
+    </main>
+    </html>
+@endsection
