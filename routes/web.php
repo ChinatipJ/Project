@@ -6,11 +6,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('foods.list'); 
 });
 
 Route::controller(FoodController::class)
@@ -19,6 +21,9 @@ Route::controller(FoodController::class)
     ->group(function () {
         Route::get('list', 'list')->name('list');
         Route::get('view/{food}', 'show')->name('view');
+        Route::get('search',  'handleSearch')->name('search'); 
+        Route::get('search2',  'Search2')->name('search2'); 
+   
     });
 
 Route::get('/search', [LayoutController::class, 'handleSearch'])
@@ -30,12 +35,15 @@ Route::controller(CategoryController::class)
     ->group(function () {
         // Route สำหรับแสดงรายการอาหารใน categories/list
         Route::get('{category}/list', 'list')->name('list');
+        Route::get('search',  'handleSearch')->name('search'); 
+        Route::get('search2',  'Search2')->name('search2'); 
     });
     Route::controller(HomeController::class)
             ->prefix('home')
             ->name('home.')
             ->group(function () {
                 Route::get('form', 'show')->name('form');
+                Route::get('about', 'showabout')->name('about');
             });
 
 Route::middleware([
@@ -51,26 +59,36 @@ Route::middleware([
             Route::get('/register', 'showRegister')->name('register'); // แสดงฟอร์ม register
             Route::post('/register', 'register')->name('register_submit'); // ประมวลผลการลงทะเบียน
 
+
         });
 
     Route::middleware(['auth'])->group(function () {
-        
+
+        Route::controller(UserController::class)
+            ->prefix('users')
+            ->name('users.')
+            ->group(function () {
+
+                Route::get('self/{userid}', 'showself')->name('self');
+                Route::post('updateSelf/{user}','updateSelf')->name('updateSelf');
+
+            });
+
+
 
 
         Route::controller(CategoryController::class)
-        ->prefix('categories')
-        ->name('categories.')
-        ->group(function () {
-           
-            Route::get('control', 'control')->name('control');
-            Route::get('create', 'create')->name('create');
-            Route::post('createNew', 'createNew')->name('createNew');
-            Route::post('update/{category}', 'updateNew')->name('updateNew');
-            Route::get('update/{category}', 'update')->name('update-form');
-            Route::get('delete/{category}', 'delete')->name('delete-form');
+            ->prefix('categories')
+            ->name('categories.')
+            ->group(function () {
 
-
-        });
+                Route::get('control', 'control')->name('control');
+                Route::get('create', 'create')->name('create');
+                Route::post('createNew', 'createNew')->name('createNew');
+                Route::post('update/{category}', 'updateNew')->name('updateNew');
+                Route::get('update/{category}', 'update')->name('update-form');
+                Route::get('delete/{category}', 'delete')->name('delete-form');
+            });
 
 
 
@@ -86,6 +104,8 @@ Route::middleware([
                 Route::get('update/{food}', 'update')->name('update-form');
                 Route::get('delete/{food}', 'delete')->name('delete-form');
             });
+
+       
 
         Route::controller(ReviewController::class)
             ->prefix('reviews')

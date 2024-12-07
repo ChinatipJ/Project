@@ -12,15 +12,26 @@
                     <span>{{ $message }}</span>
                 </div>
             @enderror
-            @csrf
+            
+            <div class="search-bar">
+                <form action="{{ route('foods.search2') }}" method="get">
+                <input type="text" name="term" value="{{ request('term', '') }}" placeholder="Search foods..." class="search-input"/> 
+            </form>
+            </div>
             <main class="table">
-            <form action="" method="post">
+          
                 <section class="table-header">
+                    
                     <h1>Edit</h1>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search Your Foods">
-                        <img src="" alt="">
+                    @if (session('success'))
+                    <div class="success">
+                        {{ session('success') }}
                     </div>
+                @endif
+                
+                <div class="create-button">
+                    <a href="{{ route('foods.create') }}">CREATE</a>
+                </div>
                 </section>
                 <section class="table-body">
                         <table>

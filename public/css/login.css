@@ -5,7 +5,7 @@
 
 body {
     max-height: fit-content;
-    background: url('/img/sea.jpg');
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
     background-size: cover;
     background-repeat: no-repeat;
 

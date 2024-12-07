@@ -12,26 +12,32 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage; 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 class FoodController extends LayoutController
 {
     
     public function show($food): View
 {
-    
+
     $food = Food::with('user')->findOrFail($food);
 
+
     $reviews = DB::table('foods2reviews')
-    ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
-    ->join('users', 'reviews.user_id', '=', 'users.id') 
-    ->orderBy('reviews.created_at', 'desc')
-    ->select('reviews.*', 'users.name as user_name') 
-    ->get();
-   
+        ->join('reviews', 'foods2reviews.review_id', '=', 'reviews.id')
+        ->join('users', 'reviews.user_id', '=', 'users.id')
+        ->where('foods2reviews.food_id', $food->id)
+        ->orderBy('reviews.created_at', 'desc')
+        ->select('reviews.*', 'users.name as user_name')
+        ->get();
+
+
     $averageRating = round($food->reviews()->average('star'), 2) ?? 0;
 
     return view('foods.view', compact('food', 'averageRating', 'reviews'));
 }
+
 
 function control(): View
 {
@@ -102,21 +108,26 @@ function control(): View
 
 
 
-    function Update(string $foodid): View
-    {
-      
-        $food = Food::where('id', $foodid)
-        ->where('user_id', Auth::id())
-        ->firstOrFail();
-        $categories = Category::all();
+public function Update(string $foodid): View
+{
+    
+    $food = Food::where('id', $foodid)->firstOrFail();
 
-        return view('foods.update', [
-            'food' => $food,
-            'categories' => $categories,
-        ]);
-    }
+   
+    Gate::authorize('update', $food); 
+
+  
+    $categories = Category::all();
+
+    return view('foods.update', [
+        'food' => $food,
+        'categories' => $categories,
+    ]);
+}
+
     function delete($food) {
         $food = Food::findOrFail($food);
+        Gate::authorize('update', $food); 
         $food->delete();
         return redirect()->route('foods.control')->with('success', 'Category deleted successfully!');
 
@@ -163,4 +174,32 @@ function control(): View
         return redirect()->route('foods.control')->with('success', 'Food updated successfully!');
     }
     
+    public function handleSearch(Request $request)
+    {
+        // Prepare search input
+        $search = $this->prepareSearch($request->all());
+
+        // Get the filtered foods
+        $foods = $this->filter($this->getQuery(), $search)->get();
+
+        // Return the results to a view
+        return view('foods.list',[
+            'foods'=>$foods,
+            'search'=>$search
+        ]);
+    } 
+    public function Search2(Request $request)
+    {
+        // Prepare search input
+        $search = $this->prepareSearch($request->all());
+
+        // Get the filtered foods
+        $foods = $this->filter($this->getQuery(), $search)->get();
+
+
+        return view('foods.control',[
+            'foods'=>$foods,
+            'search'=>$search
+        ]);
+    } 
 }    

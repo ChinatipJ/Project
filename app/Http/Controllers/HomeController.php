@@ -13,5 +13,10 @@ class HomeController extends LayoutController
     {
         return view('home.form');
     }
+
+    function showabout(): View
+    {
+        return view('home.about');
+    }
     
 }

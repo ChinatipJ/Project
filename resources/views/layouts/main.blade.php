@@ -20,7 +20,12 @@
 <div class="main-container">
     <div class="side-nav">
         <div class="user">
-            <img src="{{ Avatar::create(Auth::check() ? Auth::user()->name : 'view')->toBase64() }}" class="user-img" />
+            <a href="{{ Auth::check() ? route('users.self',Auth::user()->id) : route('login') }}">
+                <img src="{{ Avatar::create(Auth::check() ? Auth::user()->name : 'view')->toBase64() }}" class="user-img" />
+            </a>
+            
+         
+           
             <div>
                 <h2>{{ Auth::check() ? Auth::user()->name : 'viewer' }}</h2>
 <p>{{ Auth::check() ? Auth::user()->email : '' }}</p>
@@ -29,11 +34,11 @@
 
         <ul>
             <li><img src="{{ asset('img/homes.png') }}"><p><a href="{{ route('home.form') }}">Home</a></p></li>
-            <li><img src="{{ asset('img/about.png') }}"><p><a href="#">About Us</a></p></li>
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p><li>
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Control</a></p><li>
+            <li><img src="{{ asset('img/about.png') }}"><p><a href="{{ route('home.about') }}">About Us</a></p></li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.list') }}">List</a></p></li>
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('foods.control') }}">Food Control</a></p></li>
                 @can('Create', \App\Models\Category::class)
-            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('categories.control') }}">Control</a></p><li>   
+            <li><img src="{{ asset('img/list.png') }}"><p><a href="{{ route('categories.control') }}">Category Control</a></p></li>   
                 @endcan
             <li>
                 <img src="{{ asset('img/category.png') }}"><p>Categories</p>
@@ -56,9 +61,8 @@
     <div class="footer-container">
         <div class="footer-row">
             <div class="col">
-                <a href="" class="footer-logo">Logo</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa amet autem odio velit illum tempore 
-                vitae consequatur veritatis nam ab quae voluptatibus.</p>
+                <a href="" class="footer-logo">DISHDELIGHT</a>
+                <p>" เราเชื่อว่าการทำอาหารควรเป็นเรื่องสนุกและเต็มไปด้วยความสุข เว็บไซต์ของเรารวบรวมสูตรอาหารหลากหลาย ทั้งเมนูคาว หวาน และเพื่อสุขภาพ ให้คุณได้ลองสร้างสรรค์มื้ออร่อยที่บ้านได้ง่ายๆ ทุกวัน มาร่วมเพลิดเพลินกับการทำอาหารที่ไม่ยุ่งยากไปกับเรา !! " </p>
                 <ul class="social">
                     <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
@@ -66,32 +70,9 @@
                     <li><a href=""><i class="fa-brands fa-linkedin-in"></i></a></li>
                 </ul>
             </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4>Some Link</h4>
-                <ul>
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+
 </body>
 
 </html>

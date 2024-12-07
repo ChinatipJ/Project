@@ -8,7 +8,6 @@
     </head>
     <main>
        
-
         <body>
             <div class="container">
                 <div class="title">Add New Food</div>
@@ -16,15 +15,11 @@
             
                 <form action="{{ route('foods.createAdd') }}" method="POST" enctype="multipart/form-data">
                     @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
+                    <div class="error-message">
+                        <p>{{ session('error') }}</p>
                     </div>
                 @endif
-
-
-                    
-
-                    @csrf
+                @csrf
                     <div class="user-details">
                         <div class="input-box">
                             <span class="user-details">Food Name:</span>

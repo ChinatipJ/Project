@@ -81,12 +81,40 @@ public function CreateNew(Request $request)
     Category::create($validated);
 
         
-        return redirect()->route('categories.control')->with('success', 'Food added successfully!');
+        return redirect()->route('categories.control')->with('success', 'Category added successfully!');
     } catch (\Exception $e) {
       
-        return redirect()->route('categories.create')->with('error', 'Failed to add food. Please try again.');
+        return redirect()->route('categories.create')->with('error', 'Failed to add category. Please try again.');
     }
 }
 
-   
+public function handleSearch(Request $request)
+{
+    // Prepare search input
+    $search = $this->prepareSearch($request->all());
+
+    // Get the filtered foods
+    $categories = $this->filter($this->getQuery(), $search)->get();
+
+    // Return the results to a view
+    return view('categories.list',[
+        'category'=>$categories,
+        'search'=>$search
+    ]);
+} 
+public function Search2(Request $request)
+{
+    // Prepare search input
+    $search = $this->prepareSearch($request->all());
+
+    // Get the filtered foods
+    $categories = $this->filter($this->getQuery(), $search)->get();
+
+    // Return the results to a view
+    return view('categories.control',[
+        'categories'=>$categories,
+        'search'=>$search
+    ]);
+} 
+
 }

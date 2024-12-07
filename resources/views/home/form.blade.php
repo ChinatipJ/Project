@@ -8,7 +8,12 @@
     <form action="" method="post">
     @csrf
     <div class="container">
-        <h1 class="title">DISH DELIGHT</h1>
+        <div class="title-wrapper">
+            <div class="title">
+                <h2>DISHDELIGHT</h2>
+                <h2>DISHDELIGHT</h2>
+            </div>
+        </div>
         <div class="photo-gallery">
 
             <div class="column">

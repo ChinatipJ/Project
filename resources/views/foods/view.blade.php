@@ -34,13 +34,13 @@
         </div>
     </div>
     @if (session('success'))
-    <div class="alert alert-success">
+    <div class="success-message">
         {{ session('success') }}
     </div>
 @endif
 
 @if (session('error'))
-    <div class="alert alert-danger">
+    <div class="error-message">
         {{ session('error') }}
     </div>
 @endif
@@ -50,16 +50,20 @@
             <div class="commentbig-container">
                 <div class="comment-container">
                     <div class="comment-card">
-                        <h3 class="title">{{ $review->user_name ?? 'Anonymous' }}</h3>
+                        <h3 class="titles">{{ $review->user_name ?? 'Anonymous' }}</h3>
                         <p>{{ $review->comment }}</p>
                         <p>Rating: {{ $review->star }} Stars</p>
                         <div class="comment-footer">
                             @if ($review->user_id === Auth::id())
-                                <a href="{{ route('reviews.edit', $review->id) }}" class="edit">Edit</a>
-                                <form action="{{ route('reviews.destroy', $review->id) }}" method="post" style="display:inline;">
+                                <div class="review-edit-button">
+                                    <a href="{{ route('reviews.edit', $review->id) }}">Edit</a>
+                                </div>
+                                {{-- <form action="{{ route('reviews.destroy', $review->id) }}" method="post" style="display:inline;"> --}}
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="delete">Delete</button>
+                                    <div class="review-delete-button">
+                                        <a href="{{ route('reviews.destroy', $review->id) }}">Delete</a>
+                                    </div>
                                 </form>
                             @endif
                         </div>
